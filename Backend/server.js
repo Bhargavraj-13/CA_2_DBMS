@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bookRoutes = require('./routers/bookRouters');
 require('dotenv').config();
 
 const app = express();
@@ -18,6 +19,8 @@ const connectDB = async()=>{
 }
 
 connectDB();
+
+app.use('books',bookRoutes);
 
 app.listen(PORT,()=>{
     console.log(`server running on http://localhost:${PORT}`);
